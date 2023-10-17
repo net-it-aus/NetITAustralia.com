@@ -1,0 +1,247 @@
+/* collapse all     Ctrl + k + 0 */
+/* expand all       Ctrl + k + j */
+/* word wrap toggle Alt + z */
+
+body{
+    background-color: orange;
+    border: 1px solid white;
+    /* height:var(--device_innerHeight); */
+    /* width:var(--device_innerWidth); */
+    width:100vw;
+    margin:auto;
+    font-family: 'Reenie Beanie', cursive;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+header{
+    background-color: white;
+    /* border: 1px solid yellow; */
+    /* height:var(--device_innerHeight); */
+    /* width:var(--device_innerWidth); */
+    width:100vw;
+    margin:auto;
+}
+main{
+    background-color: white;
+    /* border: 1px solid red; */
+    /* height:var(--device_innerHeight); */
+    /* width:var(--device_innerWidth); */
+    width:100vw;
+    margin:auto;
+
+    height: 100vh;
+}
+h1 {
+
+    display: block;
+    font-size: 2em;
+    /* margin-top: 0.67em; */
+    margin-top: 0em;
+    /* margin-bottom: 0.67em; */
+    margin-bottom: 0em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;  
+
+}
+h2 {
+
+    display: block;
+    font-size: 1.5em;
+    /* margin-top: 0.83em; */
+    margin-top: 0em;
+    /* margin-bottom: 0.83em; */
+    margin-bottom: 0em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;  
+
+    padding-bottom: 0;
+    margin-bottom: 0;
+
+}
+footer{
+    color:white;
+    text-align: center;
+}
+.preHeader{
+    /* font-size:2rem; */
+    font-weight: bold;
+    text-align: center;
+    color:white;
+}
+.training-schedule-table{
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    margin-left: auto;
+    margin-right: auto;
+}
+.training-schedule-row{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    text-align: center;
+}
+.record-times{
+    text-align: center;
+    /* font-size: 1.7rem; */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.heading{
+    /* font-size:2rem; */
+    font-weight: bold;
+    text-align: center;
+}
+.times-history-container{
+    text-align: center;
+    display:none;
+}
+.times-history{
+    text-align: left;
+    margin-left:20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.email-times-history-button{
+    /* margin:auto; */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+.erase-times-history-button{
+    /* margin:auto; */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+.times-form{
+    display:none;
+    width:100vw;
+}
+.times-analysis-container{
+    text-align: center;
+    display:none;
+}
+.times-analysis{
+    text-align: left;
+    margin-left:20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.names-maintenance-container{
+    /* text-align: center; */
+    display:none;
+}
+.names-list-button{
+    margin-left:20px;
+}
+.names-list{
+    text-align: left;
+    margin-left:20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.names-CRUDlike{
+    cursor:pointer;
+    width:20ch;
+    border:1px solid orange;
+    background-color: antiquewhite;
+    margin:5px;
+    padding:2px;
+}
+.fb-link{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+            /*the container must be positioned relative:*/
+            .autocomplete-list{
+                background-color: red;
+            }
+            .autocomplete {
+                position: relative;
+                /* display: inline-block; */
+            }
+            .autocomplete-items {
+                position: absolute;
+                top:0;
+                left:0;
+                border: 1px solid #d4d4d4;
+                border-bottom: none;
+                border-top: none;
+                z-index: 99;
+                /*position the autocomplete items to be the same width as the container:*/
+                /* top: 100%; */
+                /* left: 0; */
+                /* right: 0; */
+                padding:5px;
+                margin-left: 5px;
+                background-color: #d4d4d4;
+                text-align: left;
+            }
+            .autocomplete-items div {
+                padding: 10px;
+                cursor: pointer;
+                background-color: #fff; 
+                border-bottom: 1px solid #d4d4d4; 
+            }
+
+
+            /* .autocomplete {
+            position: relative;
+            display: inline-block;
+            }
+
+            input {
+            border: 1px solid transparent;
+            background-color: #f1f1f1;
+            padding: 10px;
+            font-size: 16px;
+            }
+
+            input[type=text] {
+            background-color: #f1f1f1;
+            width: 100%;
+            }
+
+            input[type=submit] {
+            background-color: DodgerBlue;
+            color: #fff;
+            cursor: pointer;
+            }
+
+            .autocomplete-items {
+            position: absolute;
+            border: 1px solid #d4d4d4;
+            border-bottom: none;
+            border-top: none;
+            z-index: 99; */
+            /*position the autocomplete items to be the same width as the container:*/
+            /* top: 100%;
+            left: 0;
+            right: 0;
+            }
+
+            .autocomplete-items div {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #fff; 
+            border-bottom: 1px solid #d4d4d4; 
+            }
+*/
+            /*when hovering an item:*/
+            /* .autocomplete-items div:hover {
+            background-color: #e9e9e9; 
+            }
+*/
+            /*when navigating through the items using the arrow keys:*/
+            /* .autocomplete-active {
+            background-color: DodgerBlue !important; 
+            color: #ffffff; 
+            } */
+
+    .xPace:hover{
+        /* background-color: aqua; */
+    }
+    .city-2-surf-countdown{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;
+    }
+    @media screen and (min-width: 900px) {
+    article {
+        padding: 1rem 3rem;
+    }
+}
