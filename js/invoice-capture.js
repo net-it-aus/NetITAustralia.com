@@ -28,6 +28,9 @@ window.addEventListener("load", () => {
                 if (res_data.message==="email address received by server"){
                     document.getElementById("supplierConnectCode").style.display = "block";
                     document.getElementById("supplierCode").value=null;
+                    document.getElementById("supplierEmail").readonly=true;
+                    document.getElementById("supplierEmail").disabled=true;
+                    document.getElementById("supplierEmailButton").disabled=true;
                 }
             })
         }
@@ -60,9 +63,6 @@ window.addEventListener("load", () => {
                 if (res_data.message==="codes match"){
                     document.getElementById("uploadForm").style.display = "block";
                     // document.getElementById("supplierConnect").style.display = "none";
-                    document.getElementById("supplierEmail").readonly=true;
-                    document.getElementById("supplierEmail").disabled=true;
-                    document.getElementById("supplierEmailButton").disabled=true;
                     document.getElementById("supplierCode").readonly=true;
                     document.getElementById("supplierCode").disabled=true;
                     document.getElementById("supplierCodeButton").disabled=true;
