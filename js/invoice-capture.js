@@ -1,3 +1,31 @@
+async function fetchJWT() {
+    try {
+        const response = await fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username: 'exampleUser', password: 'examplePass' })
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        const token = data.token;
+
+        // Store the token in localStorage or sessionStorage
+        localStorage.setItem('jwtToken', token);
+
+        console.log('Token:', token);
+    } catch (error) {
+        console.error('Error fetching JWT:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', fetchJWT);
+
 // window.addEventListener("load", () => { START
 window.addEventListener("load", () => {
     // Fully loaded!
