@@ -1,30 +1,33 @@
-async function fetchJWT() {
-    try {
-        const response = await fetch('http://localhost:3000/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username: 'exampleUser', password: 'examplePass' })
-        });
+let token;
+// IMPLEMENTING JWTs START
+    // async function fetchJWT() {
+    //     try {
+    //         const response = await fetch('http://localhost:3000/login', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify({ username: 'exampleUser', password: 'examplePass' })
+    //         });
+    // 
+    //         if (!response.ok) {
+    //             throw new Error('Network response was not ok');
+    //         }
+    // 
+    //         const data = await response.json();
+    //         const token = data.token;
+    // 
+    //         // Store the token in localStorage or sessionStorage
+    //         localStorage.setItem('jwtToken', token);
+    // 
+    //         console.log('Token:', token);
+    //     } catch (error) {
+    //         console.error('Error fetching JWT:', error);
+    //     }
+    // }
+    // document.addEventListener('DOMContentLoaded', fetchJWT);
+// IMPLEMENTING JWTs END
 
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json();
-        const token = data.token;
-
-        // Store the token in localStorage or sessionStorage
-        localStorage.setItem('jwtToken', token);
-
-        console.log('Token:', token);
-    } catch (error) {
-        console.error('Error fetching JWT:', error);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', fetchJWT);
 
 // window.addEventListener("load", () => { START
 window.addEventListener("load", () => {
@@ -44,8 +47,9 @@ window.addEventListener("load", () => {
                 }
             );
             const v_options = {method: 'POST', headers: {'Content-Type': 'application/json'},body: v_data};
-            const url = "https://netit.com.au/cctConnectEmail";
+            // const url = "https://netit.com.au/cctConnectEmail";
             // const url = "/cctConnectEmail";
+            const url = 'http://localhost:2070/cctConnectEmail';
             await fetch(url,v_options)
             .then(res => {
                 console.log(res);
@@ -53,7 +57,8 @@ window.addEventListener("load", () => {
             })
             .then((res_data) => {
                 console.log(res_data);
-                if (res_data.message==="email address received by server"){
+                // if (res_data.message==="email address received by server"){
+                if (res_data.message==="Email sent by server OK."){
                     document.getElementById("supplierConnectCode").style.display = "block";
                     document.getElementById("supplierCode").value=null;
                     document.getElementById("supplierEmail").readonly=true;
@@ -78,8 +83,9 @@ window.addEventListener("load", () => {
                 }
             );
             const v_options = {method: 'POST', headers: {'Content-Type': 'application/json'},body: v_data};
-            const url = "https://netit.com.au/cctConnectCode";
+            // const url = "https://netit.com.au/cctConnectCode";
             // const url = "/cctConnectCode";
+            const url = 'http://localhost:2070/cctConnectCode';
             await fetch(url,v_options)
             .then(res => {
                 console.log(res);
@@ -89,6 +95,8 @@ window.addEventListener("load", () => {
                 console.log(res_data);
                 console.log(res_data.message);
                 if (res_data.message==="codes match"){
+                    token = res_data.token;
+                    console.log(token);
                     document.getElementById("uploadForm").style.display = "block";
                     // document.getElementById("supplierConnect").style.display = "none";
                     document.getElementById("supplierCode").readonly=true;
@@ -141,15 +149,20 @@ window.addEventListener("load", () => {
                     console.log(key, value);
                 }
 
-        // const url = 'http://localhost:2070/upload';
-        const url = 'https://netit.com.au/upload';
+        // const url = 'https://netit.com.au/cctUpload';
+        // const url = "/cctUpload";
+        const url = 'http://localhost:2070/cctUpload';
         const response = await fetch(url,{
             method:'POST',
-            // headers: {
-            //     'Access-Control-Allow-Origin',
-            // },
+            headers: {
+                // 'Access-Control-Allow-Origin',
+                // 'authorization': `Bearer ${token}`
+                'authorization': `${token}`
+            },
             body: formData
         });
+        console.log(response);
+        console.log(response.status);
 
         const resjson = await response.json();
 
